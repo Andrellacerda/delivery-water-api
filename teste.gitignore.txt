@@ -1,0 +1,22 @@
+# Gradle
+.gradle/
+build/
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# H2
+*.mv.db
+*.trace.db
+
+# Environment
+.env
