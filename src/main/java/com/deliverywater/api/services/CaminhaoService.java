@@ -1,6 +1,7 @@
 package com.deliverywater.api.services;
 
 import com.deliverywater.api.domain.Caminhao;
+import com.deliverywater.api.domain.StatusCaminhao;
 import com.deliverywater.api.dto.caminhao.*;
 import com.deliverywater.api.exceptions.*;
 import com.deliverywater.api.repository.CaminhaoRepository;
@@ -29,6 +30,7 @@ public class CaminhaoService {
         c.setPlaca(dto.placa());
         c.setModelo(dto.modelo());
         c.setCapacidadeLitros(dto.capacidadeLitros());
+        c.setStatus(StatusCaminhao.DISPONIVEL);
         return repo.save(c);
     }
 

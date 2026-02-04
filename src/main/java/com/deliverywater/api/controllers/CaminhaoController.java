@@ -20,6 +20,11 @@ public class CaminhaoController {
     }
 
     @GetMapping
+    public List<Caminhao> listar() {
+        return service.listar();
+    }
+
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Caminhao criar(@Valid @RequestBody CaminhaoCreateDTO dto) {
         return service.criar(dto);

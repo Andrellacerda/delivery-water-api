@@ -4,9 +4,15 @@ import jakarta.validation.constraints.*;
 
 public record CaminhaoCreateDTO( 
 
-    @NotBlank String placa,
-    @NotBlank String modelo,
-    @NotBlank @Min(1) Integer capacidadeLitros
+    @NotBlank(message = "Placa obrigatória")
+    String placa,
+
+    @NotBlank(message = "Modelo obrigatório")
+    String modelo,
+
+    @NotNull(message = "Capacidade em litros obrigatória")
+    @Min(value = 1, message = "Capacidade em litros deve ser maior que zero")
+    Integer capacidadeLitros
     )
     
 {}
