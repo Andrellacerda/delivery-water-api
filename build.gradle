@@ -23,8 +23,7 @@ configurations {
 	}
 }
 
-repositories {
-	mavenCentral()
+repositories { mavenCentral()
 }
 
 dependencies {
@@ -32,16 +31,22 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.7.0'
-	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
-	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-tasks.named("bootJar") { enabled = true }
-tasks.named("bootWar") { enabled = false }
-
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
+}
+
+tasks.named("bootJar") {
+    enabled = true
+}
+
+tasks.matching { it.name == "bootWar" }.configureEach {
+    enabled = false
+}
+
+tasks.matching { it.name == "war" }.configureEach {
+    enabled = false
 }
